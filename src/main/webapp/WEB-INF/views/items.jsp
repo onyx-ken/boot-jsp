@@ -13,7 +13,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <button class="btn btn-primary float-end" type="button">상품등록</button>
+            <button class="btn btn-primary float-end" type="button" onclick="location.href='/item/add'">상품등록</button>
         </div>
     </div>
     <hr class="my-4">

@@ -18,7 +18,7 @@
         <h2>상품 등록 폼</h2>
     </div>
     <h4 class="mb-3">상품 입력</h4>
-    <form action="/items/add" method="post">
+    <form action="/item/add" method="post">
         <div>
             <label for="itemName">상품명</label>
             <input type="text" id="itemName" name="itemName" class="form-control" placeholder="이름을 입력하세요">

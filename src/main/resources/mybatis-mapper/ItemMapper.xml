@@ -25,4 +25,13 @@
                 )
     </insert>
 
+    <select id="ItemDetail" parameterType="Long" resultType="ItemVO">
+        SELECT ITEM_ID,
+               ITEM_NAME,
+               ITEM_PRICE,
+               ITEM_QTY
+        FROM ITEM
+        WHERE ITEM_ID = #{itemId}
+    </select>
+
 </mapper>

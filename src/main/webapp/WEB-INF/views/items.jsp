@@ -30,8 +30,8 @@
             <tbody>
             <c:forEach var="item" items="${dataList}">
             <tr>
-                <td>${item.itemId}</td>
-                <td>${item.itemName}</td>
+                <td><a href="/item/detail/${item.itemId}">${item.itemId}</a></td>
+                <td><a href="/item/detail/${item.itemId}">${item.itemName}</a></td>
                 <td>${item.itemPrice}</td>
                 <td>${item.itemQty}</td>
             </tr>

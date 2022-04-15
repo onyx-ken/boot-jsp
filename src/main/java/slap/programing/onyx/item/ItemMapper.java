@@ -9,4 +9,5 @@ public interface ItemMapper {
     List<ItemVO> itemAllList();
     int saveItem(ItemVO itemVO);
     ItemVO ItemDetail(Long itemId);
+    int updateItem(ItemVO itemVO);
 }

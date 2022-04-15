@@ -14,4 +14,9 @@ public class ItemServiceImpl implements ItemService{
         return itemMapper.saveItem(itemVO);
     }
 
+    @Override
+    public int updateItem(ItemVO itemVO) {
+        return itemMapper.updateItem(itemVO);
+    }
+
 }

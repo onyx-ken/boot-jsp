@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -38,10 +39,26 @@ public class BasicItemController {
     }
 
     @GetMapping("/detail/{itemId}")
-    public String detail(@PathVariable() Long itemId, Model model) {
+    public String detail(@PathVariable() Long itemId, HttpSession httpSession) {
 
         ItemVO item = itemMapper.ItemDetail(itemId);
-        model.addAttribute("item", item);
+        httpSession.setAttribute("item", item);
+
+        return "itemDetail";
+    }
+
+    @GetMapping("/update")
+    public String updateView(HttpSession httpSession) {
+
+        ItemVO item = (ItemVO) httpSession.getAttribute("item");
+
+        return "updateForm";
+    }
+
+    @PostMapping("/update")
+    public String updateItem(@ModelAttribute ItemVO itemVO, Model model) {
+        itemService.updateItem(itemVO);
+        model.addAttribute("item", itemVO);
 
         return "itemDetail";
     }

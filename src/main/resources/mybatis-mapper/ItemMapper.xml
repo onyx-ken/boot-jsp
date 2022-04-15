@@ -34,4 +34,13 @@
         WHERE ITEM_ID = #{itemId}
     </select>
 
+    <update id="updateItem" parameterType="ItemVO">
+        UPDATE ITEM
+        SET    ITEM_NAME =  #{itemName},
+               ITEM_PRICE = #{itemPrice},
+               ITEM_QTY = #{itemQty}
+        WHERE ITEM_ID = #{itemId}
+    </update>
+
+
 </mapper>

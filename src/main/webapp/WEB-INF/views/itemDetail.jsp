@@ -40,7 +40,7 @@
     <div class="row">
         <div class="col">
             <button class="w-100 btn btn-primary btn-lg"
-                    onclick="location.href=''" type="button">상품 수정</button>
+                    onclick="location.href='/item/update'" type="button">상품 수정</button>
         </div>
         <div class="col">
             <button class="w-100 btn btn-secondary btn-lg"

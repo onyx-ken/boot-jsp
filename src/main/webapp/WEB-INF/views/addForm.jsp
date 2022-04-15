@@ -37,7 +37,7 @@
                 <button class="w-100 btn btn-primary btn-lg" type="submit">상품 등록</button>
             </div>
             <div class="col">
-                <button class="w-100 btn btn-secondary btn-lg" type="button">취소</button>
+                <button class="w-100 btn btn-secondary btn-lg" type="button" onclick="location.href='/item/list'">취소</button>
             </div>
         </div>
     </form>

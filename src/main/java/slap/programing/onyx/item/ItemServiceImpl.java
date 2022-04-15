@@ -19,4 +19,9 @@ public class ItemServiceImpl implements ItemService{
         return itemMapper.updateItem(itemVO);
     }
 
+    @Override
+    public int deleteItem(Long itemId) {
+        return itemMapper.deleteItem(itemId);
+    }
+
 }

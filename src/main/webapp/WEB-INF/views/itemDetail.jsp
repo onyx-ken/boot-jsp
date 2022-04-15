@@ -17,7 +17,7 @@
         <h2>상품 상세</h2>
     </div>
     <div>
-        <label for="itemId"></label>
+        <label for="itemId">상품 ID</label>
         <input type="text" id="itemId" name="itemId" class="form-control"
                value="${item.itemId}" readonly>
     </div>

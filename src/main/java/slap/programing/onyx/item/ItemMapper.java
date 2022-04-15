@@ -10,4 +10,5 @@ public interface ItemMapper {
     int saveItem(ItemVO itemVO);
     ItemVO ItemDetail(Long itemId);
     int updateItem(ItemVO itemVO);
+    int deleteItem(Long itemId);
 }

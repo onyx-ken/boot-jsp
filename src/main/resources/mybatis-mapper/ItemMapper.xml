@@ -42,5 +42,9 @@
         WHERE ITEM_ID = #{itemId}
     </update>
 
+    <delete id="deleteItem" parameterType="Long">
+        DELETE FROM ITEM
+        WHERE       ITEM_ID = #{itemId}
+    </delete>
 
 </mapper>

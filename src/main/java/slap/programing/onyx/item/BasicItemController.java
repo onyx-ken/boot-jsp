@@ -60,7 +60,14 @@ public class BasicItemController {
         itemService.updateItem(itemVO);
         model.addAttribute("item", itemVO);
 
-        return "itemDetail";
+        return "redirect:/item/detail/" + itemVO.getItemId();
     }
 
+    @PostMapping("/delete")
+    public String deleteItem(@RequestParam Long itemId) {
+        itemService.deleteItem(itemId);
+
+        return "redirect:/item/list";
+
+    }
 }

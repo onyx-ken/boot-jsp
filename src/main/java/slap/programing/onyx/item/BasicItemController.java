@@ -3,9 +3,12 @@ package slap.programing.onyx.item;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -25,13 +28,28 @@ public class BasicItemController {
 
 
     @GetMapping("/add")
-    public String viewAddForm() {
+    public String viewAddForm(Model model) {
+
+        model.addAttribute("itemVO", new ItemVO());
 
         return "addForm";
     }
 
     @PostMapping("/add")
-    public String save(@ModelAttribute ItemVO itemVO)  {
+    public String save(@Valid @ModelAttribute ItemVO itemVO, BindingResult bindingResult, Model model)  {
+
+        if (itemVO.getItemPrice() != null && itemVO.getItemQty() != null) {
+            long resultPrice = itemVO.getItemPrice() * itemVO.getItemQty();
+            if (resultPrice < 10000) {
+                bindingResult.addError(new ObjectError("itemVO", new String[]
+                        {"금액 * 수량의 합은 10000 이상이어야 합니다"}, new Object[]{10000, resultPrice}, null));
+            }
+        }
+
+        if (bindingResult.hasErrors()) {
+
+            return "addForm";
+        }
 
         itemService.saveItem(itemVO);
 

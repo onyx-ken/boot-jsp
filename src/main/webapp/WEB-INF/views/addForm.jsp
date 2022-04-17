@@ -21,7 +21,7 @@
     <h4 class="mb-3">상품 입력</h4>
     <spring:hasBindErrors name="itemVO">
         <c:if test="${errors.hasGlobalErrors()}">
-            <p>${errors.globalError.code}</p>
+            <p>${errors.globalError.defaultMessage}</p>
         </c:if>
     </spring:hasBindErrors>
     <form:form modelAttribute="itemVO" action="/item/add" method="post">

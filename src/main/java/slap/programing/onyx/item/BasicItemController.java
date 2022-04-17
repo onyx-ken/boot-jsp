@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -18,6 +18,12 @@ public class BasicItemController {
 
     private final ItemMapper itemMapper;
     private final ItemService itemService;
+    private final ItemValidator itemValidator;
+
+    @InitBinder
+    public void init(WebDataBinder dataBinder) {
+        dataBinder.addValidators(itemValidator);
+    }
 
     @GetMapping("/list")
     public String itemList(Model model) {
@@ -36,20 +42,18 @@ public class BasicItemController {
     }
 
     @PostMapping("/add")
-    public String save(@Valid @ModelAttribute ItemVO itemVO, BindingResult bindingResult, Model model)  {
-
-        if (itemVO.getItemPrice() != null && itemVO.getItemQty() != null) {
-            long resultPrice = itemVO.getItemPrice() * itemVO.getItemQty();
-            if (resultPrice < 10000) {
-                bindingResult.addError(new ObjectError("itemVO", new String[]
-                        {"금액 * 수량의 합은 10000 이상이어야 합니다"}, new Object[]{10000, resultPrice}, null));
-            }
-        }
+    public String save(@Valid @ModelAttribute("itemVO") ItemAddDTO itemAddDTO, BindingResult bindingResult, Model model)  {
 
         if (bindingResult.hasErrors()) {
 
             return "addForm";
         }
+
+        ItemVO itemVO = new ItemVO();
+        itemVO.setItemId(itemAddDTO.getItemId());
+        itemVO.setItemName(itemAddDTO.getItemName());
+        itemVO.setItemQty(itemAddDTO.getItemQty());
+        itemVO.setItemPrice(itemAddDTO.getItemPrice());
 
         itemService.saveItem(itemVO);
 

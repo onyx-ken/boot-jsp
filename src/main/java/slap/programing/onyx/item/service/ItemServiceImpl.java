@@ -1,7 +1,8 @@
-package slap.programing.onyx.item;
+package slap.programing.onyx.item.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import slap.programing.onyx.item.domain.ItemVO;
 
 @Service
 @RequiredArgsConstructor

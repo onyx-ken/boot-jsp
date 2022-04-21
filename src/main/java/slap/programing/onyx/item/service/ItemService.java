@@ -1,4 +1,6 @@
-package slap.programing.onyx.item;
+package slap.programing.onyx.item.service;
+
+import slap.programing.onyx.item.domain.ItemVO;
 
 public interface ItemService {
 

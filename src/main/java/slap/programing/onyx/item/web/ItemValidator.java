@@ -1,8 +1,9 @@
-package slap.programing.onyx.item;
+package slap.programing.onyx.item.web;
 
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
+import slap.programing.onyx.item.domain.ItemVO;
 
 @Component
 public class ItemValidator implements Validator {

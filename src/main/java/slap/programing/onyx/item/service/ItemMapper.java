@@ -1,6 +1,7 @@
-package slap.programing.onyx.item;
+package slap.programing.onyx.item.service;
 
 import org.apache.ibatis.annotations.Mapper;
+import slap.programing.onyx.item.domain.ItemVO;
 
 import java.util.List;
 

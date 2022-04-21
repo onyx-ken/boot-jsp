@@ -1,4 +1,4 @@
-package slap.programing.onyx.item;
+package slap.programing.onyx.item.domain;
 
 import lombok.Data;
 

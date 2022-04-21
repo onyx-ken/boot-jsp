@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="slap.programing.onyx.member.service.MemberMapper">
+
+    <insert id="saveMember" parameterType="MemberVO">
+        <selectKey keyProperty="memId" resultType="long" order="BEFORE">
+            SELECT NVL(MAX(MEM_ID) + 1, 1) FROM MEMBER
+        </selectKey>
+        INSERT INTO MEMBER(MEM_ID,
+                         MEM_LOGIN_ID,
+                         MEM_NAME,
+                         MEM_PASSWORD
+                        )
+        VALUES (#{memId},
+                #{memLoginId},
+                #{memName},
+                #{memPassword}
+               )
+    </insert>
+
+    <select id="findMember" resultType="MemberVO" parameterType="java.lang.String">
+        SELECT MEM_ID,
+               MEM_LOGIN_ID,
+               MEM_NAME
+        FROM MEMBER
+        WHERE MEM_LOGIN_ID = #{loginId}
+          AND MEM_PASSWORD = #{password}
+    </select>
+
+</mapper>

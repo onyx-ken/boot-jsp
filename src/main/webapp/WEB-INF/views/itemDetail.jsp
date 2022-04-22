@@ -1,8 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
-<html>
+<html lang="ko">
 <head>
+    <title>상품 상세</title>
     <meta charset="utf-8">
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     <style>

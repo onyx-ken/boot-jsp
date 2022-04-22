@@ -1,7 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
-<html>
+<html lang="ko">
 <head>
+    <title>상품 수정</title>
     <meta charset="utf-8">
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     <style>

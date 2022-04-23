@@ -14,6 +14,7 @@
     </div>
     <div class="row">
         <div class="col">
+            <button class="btn btn-primary float-start" type="button" onclick="location.href='/'">홈으로</button>
             <button class="btn btn-primary float-end" type="button" onclick="location.href='/item/add'">상품등록</button>
         </div>
     </div>

@@ -22,7 +22,7 @@
         </div>
         <div class="col">
             <form action="/login/out" method="post">
-                <button class="w-100 btn btn-dark btn-lg" onclick="location.href=''" type="submit">
+                <button class="w-100 btn btn-dark btn-lg" onclick="location.href='/login/out'" type="submit">
                     로그아웃
                 </button>
             </form>

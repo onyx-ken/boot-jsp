@@ -33,6 +33,9 @@
             </spring:hasBindErrors>
         </div>
         <div>
+            <input type="hidden" name="redirectURL" value="${redirectURL}">
+        </div>
+        <div>
             <label for="loginId">로그인 ID</label>
             <input type="text" id="loginId" name="loginId" class="form-control" value="${loginDTO.loginId}">
         </div>
